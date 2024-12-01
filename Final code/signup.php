@@ -1,7 +1,7 @@
 <?php
  // Regular expressions for validation
 $fullNameRegex = '/^[a-zA-Z\s]{3,15}$/'; // Regex for full name validation: allows alphabetic characters and spaces, length between 3 and 15
-$emailRegex = '/^[0-9]{8}@stu\.uob\.edu\.bh$/'; // Regex for email validation: follows standard email format
+$emailRegex = '/^[0-9]{3,12}@stu\.uob\.edu\.bh$/'; // Regex for email validation: follows standard email format
 $passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/"; // Regex for password validation: allows at least one lowercase letter, one uppercase letter, one digit, and one special character, length between 8 and 25
 require("connection.php");
 
@@ -12,7 +12,7 @@ if (isset($_POST['signup'])) {
     $fullName = $_POST['name']; 
     $email = $_POST['email'];
     $password = $_POST['pass'];
-    $confirmPassword = $_POST['re-pass'];
+    $confirmPassword = $_POST['re_pass'];
 
     $valid = true; // Flag to track form field validation
 
@@ -50,7 +50,7 @@ if (isset($_POST['signup'])) {
             $msg = "This email is already used. Please try another one.";
         } else {
             // Insert user data into the database 
-        $insert = $db ->prepare("INSERT INTO user VALUES (NULL,?, ?, ?'User'");
+        $insert = $db ->prepare("INSERT INTO user VALUES (NULL,?, ?, ?,'User')");
         $insert ->bindParam(1,$fullName);
         $insert ->bindParam(2,$email);
         $insert ->bindParam(3,$password);
@@ -78,7 +78,7 @@ if (isset($_POST['signup'])) {
         <div class="signup-content">
             <div class="signup-form">
                 <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form" action="booking_system.php">
+                <form method="POST" class="register-form" id="register-form" action="signup.php">
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                         <input type="text" name="name" id="name" placeholder="Your Name"/>
@@ -110,6 +110,7 @@ if (isset($_POST['signup'])) {
             </div>
         </div>
     </div>
+    <h1><?php echo $msg ?> </h1>
 </section>
 
 <div class="main">

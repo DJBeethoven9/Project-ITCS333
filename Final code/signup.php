@@ -107,7 +107,7 @@ if (isset($_POST['signup'])) {
             </div>
         </div>
     </div>
-    <h1><?php echo $msg ?> </h1>
+    <!-- <h1><?php echo $msg ?> </h1> -->
 </section>
 
 <div class="main">

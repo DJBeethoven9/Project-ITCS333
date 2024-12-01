@@ -1,4 +1,66 @@
+<?php
+ // Regular expressions for validation
+$fullNameRegex = '/^[a-zA-Z\s]{3,15}$/'; // Regex for full name validation: allows alphabetic characters and spaces, length between 3 and 15
+$emailRegex = '/^[0-9]{8}@stu\.uob\.edu\.bh$/'; // Regex for email validation: follows standard email format
+$passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/"; // Regex for password validation: allows at least one lowercase letter, one uppercase letter, one digit, and one special character, length between 8 and 25
+require("connection.php");
 
+$msg = ""; // Variable to store error or success messages
+
+if (isset($_POST['signup'])) {
+    // Retrieve form data
+    $fullName = $_POST['name']; 
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $confirmPassword = $_POST['re-pass'];
+
+    $valid = true; // Flag to track form field validation
+
+    // Validate full name
+    if (!preg_match($fullNameRegex, $fullName)) {
+        $msg = "Please enter a valid full name (3-15 alphabetic characters and spaces)";
+        $valid = false;
+    }
+
+    // Validate email
+    if (!preg_match($emailRegex, $email)) {
+        $msg = "Please enter a valid email address";
+        $valid = false;
+    }
+
+    // Validate password
+    if (!preg_match($passwordRegex, $password)) {
+        $msg = "Password must be 8-25 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character";
+        $valid = false;
+    }
+
+    // Validate confirm password
+    if ($password !== $confirmPassword) {
+        $msg = "Confirm password does not match the password";
+        $valid = false;
+    }
+
+    if ($valid) {
+        // Verify unique email and username
+        $verify_email_query = $db ->prepare("SELECT count(*) FROM user WHERE Email=?");
+        $verify_email_query ->bindParam(1,$email);
+        $verify_email_query ->execute();
+        $count = $verify_email_query -> fetchColumn();
+        if ($count != 0) {
+            $msg = "This email is already used. Please try another one.";
+        } else {
+            // Insert user data into the database 
+        $insert = $db ->prepare("INSERT INTO user VALUES (NULL,?, ?, ?'User'");
+        $insert ->bindParam(1,$fullName);
+        $insert ->bindParam(2,$email);
+        $insert ->bindParam(3,$password);
+        $insert ->execute();
+
+            $msg = "Registration successful!";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

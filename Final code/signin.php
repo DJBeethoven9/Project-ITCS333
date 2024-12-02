@@ -50,7 +50,7 @@ session_start(); // Start the session to manage user session data
                 if(isset($_SESSION['valid']) && ($_SESSION['Type'] == 'User')){
                     $_SESSION['activeUser']= $row['Email'];
                     // If user data is stored in session, redirect to home.php
-                    header("Location: home.php");
+                    header("Location: homepage.php");
                 }
             }
             else if(isset($_SESSION['valid']) && ($_SESSION['Type'] == 'Admin')){

@@ -44,8 +44,8 @@ session_start(); // Start the session to manage user session data
                     echo "<div class='message'>
                     <p class='fail'>Wrong Username or Password</p>
                     </div> <br>";
-                  echo "<a href='signin.php'><button class='btn'>Go Back</button>";
-                  
+                echo "<a href='signin.php'><button class='btn'>Go Back</button>";
+                
                 }
                 if(isset($_SESSION['valid']) && ($_SESSION['Type'] == 'User')){
                     $_SESSION['activeUser']= $row['Email'];
@@ -53,10 +53,10 @@ session_start(); // Start the session to manage user session data
                     header("Location: home.php");
                 }
             }
-              else if(isset($_SESSION['valid']) && ($_SESSION['Type'] == 'Admin')){
+            else if(isset($_SESSION['valid']) && ($_SESSION['Type'] == 'Admin')){
                 header("Location: Admin.php");
-              }else{
-              ?>
+            }else{
+            ?>
 
 <div class="main">
 

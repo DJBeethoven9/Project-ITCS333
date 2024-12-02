@@ -50,7 +50,7 @@ if (isset($_POST['signup'])) {
             $msg = "This email is already used. Please try another one.";
         } else {
             // Insert user data into the database 
-        $insert = $db ->prepare("INSERT INTO user VALUES (NULL,?, ?, ?,'User')");
+        $insert = $db ->prepare("INSERT INTO user VALUES (NULL,?, ?, ?,'User','default.png')");
         $insert ->bindParam(1,$fullName);
         $insert ->bindParam(2,$email);
         $insert ->bindParam(3,$password);

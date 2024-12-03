@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+</head>
+<body>
+    <h1>Room Details</h1>
+    <div id="room-details">
+        <!-- Room details will be inserted here dynamically -->
+    </div>
+
+    <script>
+        // Get the room ID from the URL query string (e.g., ?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = urlParams.get('id');
+
+        if (roomId) {
+            // Fetch room details based on the room ID
+            fetch(`/backend/fetch_room_details.php?id=${roomId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const roomDetailsDiv = document.getElementById('room-details');
+                    
+                    if (data.error) {
+                        roomDetailsDiv.textContent = data.error;
+                    } else {
+                        roomDetailsDiv.innerHTML = `
+                            <h2>${data.name}</h2>
+                            <p>Capacity: ${data.capacity}</p>
+                            <p>Equipment: ${data.equipment}</p>
+                            <p>Available Times:</p>
+                            <ul>
+                                ${data.available_times.map(time => `<li>${time}</li>`).join('')}
+                            </ul>
+                        `;
+                    }
+                })
+                .catch(error => console.error('Error fetching room details:', error));
+        } else {
+            // If no room ID is provided, show an error
+            document.getElementById('room-details').textContent = 'Room ID is required';
+        }
+    </script>
+</body>
+</html>

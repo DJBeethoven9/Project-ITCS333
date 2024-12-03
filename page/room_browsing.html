@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Browsing</title>
+</head>
+<body>
+    <h1>Available Rooms</h1>
+    <ul id="room-list">
+        <!-- Room list will be inserted here dynamically -->
+    </ul>
+
+    <script>
+        // Fetch room data from the backend (fetch_rooms.php)
+        fetch('/backend/fetch_rooms.php')
+            .then(response => response.json())
+            .then(data => {
+                const roomList = document.getElementById('room-list');
+                
+                // Loop through the data and create a list item for each room
+                data.forEach(room => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>${room.name}</strong><br>
+                        Capacity: ${room.capacity}<br>
+                        Equipment: ${room.equipment}<br>
+                        <a href="room_details.html?id=${room.id}">View Details</a>
+                    `;
+                    roomList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching rooms:', error));
+    </script>
+</body>
+</html>

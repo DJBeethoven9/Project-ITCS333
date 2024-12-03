@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
         if (!$_FILES["profile_pic"]["error"] > 0) {
             $profile_pic_name = $profile_pic['name'];
             $profile_pic_tmp_name = $profile_pic['tmp_name'];
-            $profile_pic_folder = '../images/' . $profile_pic_name;
+            $profile_pic_folder = 'images/' . $profile_pic_name;
             
             move_uploaded_file($profile_pic_tmp_name, $profile_pic_folder);
         }
@@ -162,6 +162,59 @@ if (isset($_POST['submit'])) {
                 <div class="field">
                     <input type="submit" class="btn" name="submit" value="Update" style="border-radius: 12px;">
                 </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<?php
+session_start();
+require("connection.php");
+
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $query = $db->prepare("SELECT * FROM admins WHERE email=? AND password=?");
+    $query->bindParam(1, $email);
+    $query->bindParam(2, $password);
+    $query->execute();
+
+    if ($query->rowCount() > 0) {
+        $_SESSION['admin'] = $email;
+        header("Location: admin.php");
+        exit();
+    } else {
+        echo "<div class='message'>
+            <p>Invalid email or password.</p>
+        </div> <br>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/admin.css">
+    <title>Admin Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box form-box">
+            <h2>Admin Login</h2>
+            <form method="post" action="admin_login.php">
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit" name="login" class="btn">Login</button>
             </form>
         </div>
     </div>

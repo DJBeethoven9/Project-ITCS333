@@ -2,12 +2,12 @@
  // Regular expressions for validation
 $fullNameRegex = '/^[a-zA-Z\s]{3,15}$/'; // Regex for full name validation: allows alphabetic characters and spaces, length between 3 and 15
 $emailRegex = '/^[0-9]{3,12}@stu\.uob\.edu\.bh$/'; // Regex for email validation: follows standard email format
-$passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/"; // Regex for password validation: allows at least one lowercase letter, one uppercase letter, one digit, and one special character, length between 8 and 25
+$passwordRegex = "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"; // Regex for password validation: allows at least one lowercase letter, one uppercase letter, one digit, and one special character, length between 8 and 25
 require("connection.php");
 
 $msg = ""; // Variable to store error or success messages
 
-//if (isset($_POST['signup'])) {
+if (isset($_POST['signup'])) {
     // Retrieve form data
     $fullName = $_POST['name']; 
     $email = $_POST['email'];
@@ -18,25 +18,26 @@ $msg = ""; // Variable to store error or success messages
 
     // Validate full name
     if (!preg_match($fullNameRegex, $fullName)) {
-        $msg = "Please enter a valid full name (3-15 alphabetic characters and spaces)";
+        $msg .= "Please enter a valid full name (3-15 alphabetic characters and spaces) <br/>";
         $valid = false;
+    
     }
 
     // Validate email
     if (!preg_match($emailRegex, $email)) {
-        $msg = "Please enter a valid email address";
+        $msg .= "Please enter a valid email address <br/>";
         $valid = false;
     }
 
     // Validate password
     if (!preg_match($passwordRegex, $password)) {
-        $msg = "Password must be 8-25 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character";
+        $msg .= "Password must be 8-25 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character <br/>";
         $valid = false;
     }
 
     // Validate confirm password
     if ($password !== $confirmPassword) {
-        $msg = "Confirm password does not match the password";
+        $msg .= "Confirm password does not match the password <br/>";
         $valid = false;
     }
 
@@ -57,9 +58,11 @@ $msg = ""; // Variable to store error or success messages
         $insert ->execute();
 
             $msg = "Registration successful!";
+            header("Location: homepage.php");
+
         }
     }
-//}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +110,7 @@ $msg = ""; // Variable to store error or success messages
             </div>
         </div>
     </div>
-    <!-- <h1><?php echo $msg ?> </h1> -->
+    <h1><?php echo $msg ?> </h1>
 </section>
 
 <div class="main">

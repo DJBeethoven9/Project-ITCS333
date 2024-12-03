@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    background-color: #004fa3;
+    color: #fff;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo p a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav .right-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav .right-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.nav .right-links .btn {
+    background-color: #d4472e;
+    border: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav .right-links .btn:hover,
+.nav .right-links a:hover {
+    background-color: #004085;
+    color: #ffffff;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.box {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-box {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}

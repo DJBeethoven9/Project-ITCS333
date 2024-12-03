@@ -22,7 +22,7 @@ if (!$user) {
 
 $email = $user['Email'];
 $password = str_repeat('*', strlen($user['Password']));
-$name = $user['Name'];
+$name = $user['FullName'];
 $profile_pic = $user['pfp'];
 
 if (isset($_POST['submit'])) {
@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
         if (!$_FILES["profile_pic"]["error"] > 0) {
             $profile_pic_name = $profile_pic['name'];
             $profile_pic_tmp_name = $profile_pic['tmp_name'];
-            $profile_pic_folder = 'images/' . $profile_pic_name;
+            $profile_pic_folder = '../images/' . $profile_pic_name;
             
             move_uploaded_file($profile_pic_tmp_name, $profile_pic_folder);
         }

@@ -7,7 +7,7 @@ require("connection.php");
 
 $msg = ""; // Variable to store error or success messages
 
-if (isset($_POST['signup'])) {
+//if (isset($_POST['signup'])) {
     // Retrieve form data
     $fullName = $_POST['name']; 
     $email = $_POST['email'];
@@ -59,7 +59,7 @@ if (isset($_POST['signup'])) {
             $msg = "Registration successful!";
         }
     }
-}
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">

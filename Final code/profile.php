@@ -21,17 +21,7 @@ $passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/
     <title>Change Profile</title>
 </head>
 <body>
-    <div class="nav">
-        <div class="logo">
-            <p><a href="homepage.php"> UOB</a></p>
-        </div>
-        <div class="right-links">
-            <a href="profile.php">Change Profile</a>
-            <a href="logout.php">
-                <button class="btn">Log Out</button>
-            </a>
-        </div>
-    </div>
+    <?php include("nav.php"); ?>
 
     <div class="container">
         <div class="box form-box">
@@ -158,7 +148,7 @@ $passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/
                 </div>
 
                 <div class="field">
-                    <input type="submit" class="btn" name="submit" value="Update" required>
+                    <input type="submit" class="btn" name="submit" value="Update" style="border-radius: 12px;" required>
                 </div>
             </form>
         </div>

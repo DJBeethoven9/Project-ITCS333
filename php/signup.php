@@ -67,7 +67,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\Css\style.css">
 </head>
 <body>
 <div class="main">
@@ -102,7 +102,7 @@ if (isset($_POST['signup'])) {
                 </form>
             </div>
             <div class="signup-image">
-                <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                <figure><img src="..\images\signup-image.jpg" alt="sing up image"></figure>
                 <a href="signin.php" class="signup-image-link">I am already member</a>
             </div>
         </div>

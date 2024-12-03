@@ -8,7 +8,7 @@
 <body>
 <div class="nav">
         <div class="logo">
-            <p><a href="homepage.php"><img src="images/IMG_2784.PNG" alt="UOB Logo" style="width: 70px; height: auto;"></a></p>
+            <p><a href="homepage.php"><img src="..\images\IMG_2784.PNG" alt="UOB Logo" style="width: 70px; height: auto;"></a></p>
         </div>
         <div class="right-links">
             <a href="view_profile.php">view Profile</a>

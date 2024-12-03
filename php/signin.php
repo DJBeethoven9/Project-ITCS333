@@ -9,7 +9,7 @@ session_start(); // Start the session to manage user session data
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\Css\style.css">
 </head>
 <body>
 <?php 
@@ -65,7 +65,7 @@ session_start(); // Start the session to manage user session data
     <div class="container">
         <div class="signin-content">
             <div class="signin-image">
-                <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
+                <figure><img src="..\images\signin-image.jpg" alt="sing up image"></figure>
                 <a href="signup.php" class="signup-image-link">Create an account</a>
             </div>
 

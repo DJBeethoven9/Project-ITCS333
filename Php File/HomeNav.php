@@ -13,7 +13,7 @@
 <body>
 <nav>
         <div class="image-container">
-           <a href="HomePage.php"> <img src="images/logo.png" alt="Logo"></a>
+           <a href="HomePage.php"> <img src="css/images/logo.png" alt="Logo"></a>
         </div>
         <div class="SearchBar">
             <form action="roombrowsing.php" method="GET">

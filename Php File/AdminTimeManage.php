@@ -63,7 +63,7 @@
 <body>
 <nav>
     <div class="admin-header">
-        <a href="AdminPanel.php"><img src="images/logo.png" alt="Admin Logo" class="admin-logo"></a>
+        <a href="AdminPanel.php"><img src="css/images/logo.png" alt="Admin Logo" class="admin-logo"></a>
         <div id="clock-container">
             <div id="greeting"></div>
             <div id="clock"></div>

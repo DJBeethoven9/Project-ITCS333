@@ -61,7 +61,7 @@ $queryBookings = $db->prepare($bsql);
 <>
 <nav>
 <div class="admin-header">
-    <a href="AdminPanel.php"><img src="images/logo.png" alt="Admin Logo" class="admin-logo"></a>
+    <a href="AdminPanel.php"><img src="css/images/logo.png" alt="Admin Logo" class="admin-logo"></a>
 </div>
 
 <div class="admin-menu">
@@ -153,7 +153,7 @@ $queryBookings = $db->prepare($bsql);
         <p >There are no available rooms to book at the moment.</p>
     </div>
 <?php } ?>
-    </div>
+</div>
 
     <!-- Bookings Table -->
     <div class="summary-box">

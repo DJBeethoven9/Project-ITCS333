@@ -19,7 +19,7 @@ session_start();
 
   } else{
     if($_SESSION['Type']=="student" | $_SESSION['Type']=="staff"){
-        header("location:currentbooking.php");
+        header("location:Currentbooking.php");
         exit();
     }
     else if($_SESSION['Type']=="Admin")

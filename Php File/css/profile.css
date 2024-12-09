@@ -114,21 +114,3 @@ body {
     object-fit: cover;
 }
 
-.profile-picture-update {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-picture-update label {
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #003366;
-}
-
-.profile-picture-update input[type="file"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}

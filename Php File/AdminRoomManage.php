@@ -5,7 +5,7 @@
     session_start();
     if(isset($_SESSION['userid'])){
         if ($_SESSION['Type']=='student' | $_SESSION['Type']=='staff'){
-                header('location:HomePage.php');
+                header('location:index.php');
                 exit();
         }
     }
@@ -62,7 +62,7 @@
 <body>
 <nav>
     <div class="admin-header">
-        <a href="AdminPanel.php"><img src="css/images/logo.png" alt="Admin Logo" class="admin-logo"></a>
+        <a href="AdminPanel.php"><img src="images/logo.png" alt="Admin Logo" class="admin-logo"></a>
     </div>
     <div class="admin-menu">
         <ul>
@@ -73,7 +73,7 @@
                         <img class="admin-profile-picture" src="<?php echo $s['pfp']; ?>" alt="Admin Profile Picture">
                     </button>
                     <div class="admin-dropdown-content">
-                        <a href="HomePage.php">Dashboard</a>
+                        <a href="AdminPanel.php">Dashboard</a>
                         <a href="logout.php">Log Out</a>
                     </div>
                 </div>

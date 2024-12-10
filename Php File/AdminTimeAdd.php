@@ -21,14 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['start-time']) && isset
         exit();
     } else {
         
-        $MAli = $db->prepare("INSERT INTO timeslot  VALUES (NULL,?, ?, ?)");
-        $MAli->bindParam(1, $roomId);
-        $MAli->bindParam(2, $startTime);
-        $MAli->bindParam(3, $endTime);
+        $Ali = $db->prepare("INSERT INTO timeslot  VALUES (NULL,?, ?, ?)");
+        $Ali->bindParam(1, $roomId);
+        $Ali->bindParam(2, $startTime);
+        $Ali->bindParam(3, $endTime);
         
-        $MAli->execute();
+        $Ali->execute();
 
-        if ($MAli) {
+        if ($Ali) {
             header("Location: AdminTimeManage.php?msg=The TimeSlot has been successfully added.");
         } else {
             header("Location: AdminTimeManage.php?msg=Failed to add the TimeSlot.");

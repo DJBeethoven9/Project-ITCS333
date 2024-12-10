@@ -20,7 +20,7 @@
     <body>
         <nav>
             <div class="image-container">
-            <a href="HomePage.php"> <img src="css/images/logo.png" alt="Logo"></a>
+            <a href="index.php"> <img src="images/logo.png" alt="Logo"></a>
             </div>
 
             
@@ -34,9 +34,9 @@
                                 <img class="profile" src="<?php echo $s['pfp']; ?>" alt="Profile Picture class='logo-img'">
                             </button>
                             <div class="dropdown-content">
-                                <a href="HomePage.php">Home</a>
+                                <a href="index.php">Home</a>
                                 <a href="ProfileView.php">View Profile</a>
-                                <a href="ProfileEdit.php">Edit Profile</a>
+                              
                                 <a href="logout.php">Log Out</a>
                             </div>
                         </div>

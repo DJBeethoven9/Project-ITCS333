@@ -96,7 +96,7 @@
             if (isset($_SESSION['msg'])) {
                 echo 'alert("' . $_SESSION['msg'] . '");';
                 unset($_SESSION['msg']);
-                echo 'window.location.href = "CurrentBooking.php";';
+                echo 'window.location.href = "currentBooking.php";';
             }
             ?>
         }

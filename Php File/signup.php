@@ -86,7 +86,7 @@ if (isset($_POST['signup'])) {
 <body>
 <div class="main">
     <nav class="navbar">
-        <h1>Welcome to UOB Students</h1>
+        <h1>Welcome to UOB</h1>
     </nav>
     <section class="signup">
         <div class="container">

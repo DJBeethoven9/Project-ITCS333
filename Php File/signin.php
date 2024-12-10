@@ -56,7 +56,7 @@ if (isset($_POST['signin'])) {
 ?>
 <div class="main">
     <nav class="navbar">
-        <h1>Welcome to UOB Students</h1>
+        <h1>Welcome to UOB</h1>
     </nav>
     <section class="sign-in">
         <div class="container">

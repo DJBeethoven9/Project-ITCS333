@@ -20,7 +20,7 @@ if ($_SESSION['Type'] == "Admin") {
     $emailRegex = '/^[a-zA-Z]{3,20}@uob\.edu\.bh$/'; 
 }
 
-$passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/";
+$passwordRegex = "/^[\s\S]{8,24}$/";
 
 
 if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['submit'])) {
@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['submit'])) {
 
     }else {$email = $r['Email']; }
     if (!preg_match($emailRegex, $email)) {
-        $_SESSION['error1'] = "Please enter a valid email address.";
+        $_SESSION['error1'] = "Invalid Email Please try to make the domain name is correct for example (123@uob.edu.bh for intructur 
+        , 123@stu.uob.edu.bh for student";
         header("Location: profileview.php");
         exit();
         
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST" && isset($_POST['submit'])) {
 
     
      if (!empty($_POST['password']) && !preg_match($passwordRegex, $password)) {
-        $_SESSION['error1'] = "Please enter a valid password (8-25 characters, at least one uppercase letter, one lowercase letter, and one special character).";
+        $_SESSION['error1'] = "Please enter a valid password (8-24 characters).";
         header("Location: profileview.php");
         exit();
     } 

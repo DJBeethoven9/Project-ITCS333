@@ -151,7 +151,7 @@
             <?php while ($r = $Booked->fetch()) { ?>
             <tr>
                 <?php echo "<td>{$r['booking_id']}</td>";
-                echo "<td>{$r['room_name']}</td>";
+                echo "<td>{$r['FullName']}</td>";
                 echo "<td>{$r['room_id']}</td>";
                 echo "<td>{$r['room_name']}</td>";
                 echo "<td>{$r['capacity']}</td>";

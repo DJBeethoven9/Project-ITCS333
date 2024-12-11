@@ -3,7 +3,7 @@ session_start();
 $fullNameRegex = '/^[a-zA-Z\s]{3,15}$/';
 $semailRegex = '/^[0-9]{3,12}@stu\.uob\.edu\.bh$|^[a-zA-Z]{3,20}@uob\.edu\.bh$/';
 $iemailregex ='/^[a-zA-Z]{3,20}@uob\.edu\.bh$/';
-$passwordRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_#@%*\\-]{8,24}$/";
+$passwordRegex = "/^[\s\S]{8,24}$/";
 require("conn.php");
 
 if(isset($_SESSION['Type'])){
@@ -44,7 +44,7 @@ if (isset($_POST['signup'])) {
 
 
     if (!preg_match($passwordRegex, $password)) {
-        $msg = "Password must be 8-25 characters long and include at least one lowercase letter, one uppercase letter, one digit, and one special character";
+        $msg = "Password must be 8-24 characters long.";
         $valid = false;
     }
 
@@ -86,7 +86,7 @@ if (isset($_POST['signup'])) {
 <body>
 <div class="main">
     <nav class="navbar">
-        <h1>Welcome to UOB Students</h1>
+        <h1>Welcome to UOB</h1>
     </nav>
     <section class="signup">
         <div class="container">
